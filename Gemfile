@@ -49,7 +49,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
-  gem 'faker'
 end
 
 gem 'bcrypt'
+
+gem 'faker'
