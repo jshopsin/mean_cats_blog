@@ -7,3 +7,9 @@
 <br>
 <p>Posted By: <%= @article.user.username %></p>
 <p>Created: <%= @article.date %></p>
+
+<% if current_user == @article.user %>
+  <div class="update-article">
+    <%= link_to "Update Article", edit_category_article_path(@article) %>
+  </div>
+<% end %>
