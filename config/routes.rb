@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:show]
 
-  resources :logins, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   root to: "categories#index"
 end
