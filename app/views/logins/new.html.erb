@@ -1,12 +1,12 @@
 <h1>Login</h1>
 
-<%= form_for @user, url: { action: "create" } do |f| %>
-  <%= f.label :email, 'Email: ' %>
-  <%= f.email_field :email %>
+<%= form_tag logins_path do %>
+  <%= label_tag :email, 'Email: ' %>
+  <%= email_field_tag :email, params[:email] %>
   <br>
   <br>
-  <%= f.label :password, 'Password: ' %>
-  <%= f.password_field :password %>
+  <%= label_tag :password, 'Password: ' %>
+  <%= password_field_tag :password, params[:password] %>
   <br>
   <br>
   <%= submit_tag 'Login' %>

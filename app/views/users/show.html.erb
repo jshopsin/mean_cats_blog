@@ -1,1 +1,14 @@
-<h1><%= @user.username %></h1>
+<h1><%= @user.username %>'s Articles:</h1>
+
+<article>
+  <hr>
+  <% @user.articles.each do |article| %>
+    <br>
+    <h3><%= link_to article.title, article_path(article) %></h3>
+    <p>Category: <%= link_to article.category.name, category_path(article.category) %></p>
+    <p>Posted By: <%= article.user.username %></p>
+    <p>Created: <%= article.date %></p>
+    <br>
+    <hr>
+  <% end %>
+</article>
