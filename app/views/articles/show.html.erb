@@ -12,4 +12,7 @@
   <div class="update-article">
     <%= link_to "Update Article", edit_category_article_path(@article) %>
   </div>
+  <div class="destroy-article">
+    <%= link_to "Delete Article", category_article_path(@article), method: :delete %>
+  </div>
 <% end %>
