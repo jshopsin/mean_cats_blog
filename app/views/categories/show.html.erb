@@ -1,0 +1,13 @@
+<h1><%= @category.name %></h1>
+
+<article>
+  <hr>
+  <% @category.articles.each do |article| %>
+    <br>
+    <h3><%= link_to article.title, article_path(article) %></h3>
+    <p>Posted By: <%= article.user.username %></p>
+    <p>Created: <%= article.date %></p>
+    <br>
+    <hr>
+  <% end %>
+</article>
