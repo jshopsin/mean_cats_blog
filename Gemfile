@@ -51,3 +51,5 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
 end
+
+gem 'bcrypt'

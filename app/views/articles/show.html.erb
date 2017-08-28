@@ -1,5 +1,7 @@
 <h1><%= @article.title %></h1>
 
+<h3>Category: <%= link_to @article.category.name, category_path(@article.category) %></h3>
+
 <br>
 <p><%= @article.body %></p>
 <br>

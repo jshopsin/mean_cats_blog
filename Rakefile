@@ -3,4 +3,6 @@
 
 require_relative 'config/application'
 
+require 'bcrypt'
+
 Rails.application.load_tasks
