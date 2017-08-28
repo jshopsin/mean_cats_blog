@@ -1,24 +1,22 @@
 class User < ApplicationRecord
   has_many :articles
 
+  before_save {self.email = email.downcase}
+
+  has_secure_password
+
   validates :username, :email, presence: true, uniqueness: true
   validate :has_password
-  validate :authenticate
 
   include BCrypt
 
   def password
-    @password ||= Password.new(password_hash)
+    @password ||= Password.new(password_digest)
   end
 
   def password=(new_password)
     @password = Password.create(new_password)
-    self.password_hash = @password
-  end
-
-  def authenticate(password_hash)
-    @password_check = Password.new(password_hash)
-    self.password_hash == @password_check
+    self.password_digest = @password
   end
 
   private
