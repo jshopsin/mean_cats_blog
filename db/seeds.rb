@@ -1,3 +1,7 @@
+Category.destroy_all
+User.destroy_all
+Article.destroy_all
+
 Category.create(name: "Share the Love")
 Category.create(name: "Sent by the Devil")
 Category.create(name: "Nighttime Terrors")
