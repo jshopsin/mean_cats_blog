@@ -1,0 +1,27 @@
+class ArticlesController < ApplicationController
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  def new
+    @article = Article.new
+    @category = Category.find(params[:category_id])
+  end
+
+  def create
+    @article = Article.new(article_params)
+    @article.user = current_user
+    @article.category = Category.find(params[:category_id])
+    if @article.save
+      redirect_to @article
+    else
+      redirect_to "articles#new"
+    end
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :body, :user_id, :category_id)
+  end
+end
