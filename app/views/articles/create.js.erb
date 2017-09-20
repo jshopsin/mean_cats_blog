@@ -1,0 +1,3 @@
+$("#new-article-link").show();
+$(".new-article-form").hide();
+$(".list-articles").append('<%= j render(partial: "categories/article_details", locals: {article: @article}) %>')
