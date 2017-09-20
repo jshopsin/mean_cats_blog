@@ -1,0 +1,13 @@
+<div class="new-article-form">
+  <%= form_for @article, url: { action: "create" }, remote: true do |f| %>
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title %>
+    <br>
+    <br>
+    <%= f.label :body, 'Body:' %>
+    <%= f.text_area :body %>
+    <br>
+    <br>
+    <%= submit_tag 'Submit Article' %>
+  <% end %>
+</div>

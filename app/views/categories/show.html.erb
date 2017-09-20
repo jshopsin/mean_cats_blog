@@ -1,19 +1,12 @@
 <h1><%= @category.name %></h1>
 
-<article>
+<div class="list-articles">
   <hr>
   <% @category.articles.each do |article| %>
-    <br>
-    <h3><%= link_to article.title, article_path(article) %></h3>
-    <p>Posted By: <%= article.user.username %></p>
-    <p>Created: <%= article.date %></p>
-    <br>
-    <hr>
+    <%= render partial: "article_details", locals: {article: article}, remote: true %>
   <% end %>
-</article>
+</div>
 
 <% if current_user %>
-  <div class="new-article">
-    <%= link_to "New Article", new_category_article_path(@category) %>
-  </div>
+  <%= link_to "New Article", new_category_article_path(@category), id: "new-article-link", remote: true %>
 <% end %>

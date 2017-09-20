@@ -13,7 +13,10 @@ class ArticlesController < ApplicationController
     @article.user = current_user
     @article.category = Category.find(params[:category_id])
     if @article.save
-      redirect_to @article
+      respond_to do |format|
+        format.html { redirect_to @article }
+        format.js
+      end
     else
       redirect_to "articles#new"
     end
@@ -35,7 +38,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to root_url, notice: "The article has been deleted!"
+    redirect_to category_path(@article.category), notice: "The article has been deleted!"
   end
 
   private
